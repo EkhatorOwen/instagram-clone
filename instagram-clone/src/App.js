@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ToggleRenderProps from './ToggleRenderProps'
 import logo from './logo.svg';
 import './App.css';
 
@@ -10,9 +11,21 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+        <ToggleRenderProps render={({on, toggle})=>(
+          <div>
+          {on && <h1>Show me</h1>}
+           <button onClick={toggle}>{on ? 'hide':'show'}</button>
+          </div>
+        )}
+        />  
+        <ToggleRenderProps render={({on, toggle})=>(
+          <div>
+          {on && <h1>bla bla</h1>}
+           <button onClick={toggle}>Display</button>
+          </div>
+        )}
+        /> 
       </div>
     );
   }
