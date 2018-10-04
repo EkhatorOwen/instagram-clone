@@ -13,7 +13,7 @@ class App extends Component {
           <h1 className="App-title">Welcome to the Intagram-clone app</h1>
         </header>
 
-        <ToggleRPC>
+        <ToggleRPC  >
         {({on, toggle})=>(
           <div>
             {on && <h1>Show me</h1>}
