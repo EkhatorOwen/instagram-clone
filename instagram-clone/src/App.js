@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import ToggleRenderProps from './ToggleRenderProps'
+//import ToggleRenderProps from './ToggleRenderProps'
 import ToggleRPC from './ToggleRPC'
+import Move from './Move'
 import logo from './logo.svg';
 import './App.css';
 
@@ -13,7 +14,16 @@ class App extends Component {
           <h1 className="App-title">Welcome to the Intagram-clone app</h1>
         </header>
 
-        <ToggleRPC  >
+        <ToggleRPC>
+        {({on, toggle})=>(
+          <div>
+            {on && <h1>Show me</h1>}
+            <button onClick={toggle}>{on ? 'hide':'show'}</button>
+          </div>
+        )}
+        </ToggleRPC> 
+
+        <ToggleRPC>
         {({on, toggle})=>(
           <div>
             {on && <h1>Show me</h1>}
@@ -25,6 +35,14 @@ class App extends Component {
           <p className="App-intro">
             Work in progress, stay tuned...
           </p>
+          <Move> 
+          {({x,y,handleMouseMove})=>(
+              <div>
+              <div  style={{height: '100px'}} onMouseMove={handleMouseMove}></div>
+              <p>The current position of the mouse is ({x},{y}) </p> 
+              </div>
+          ) }
+          </Move>
       </div>
     );
   }
